@@ -25,7 +25,7 @@
             <a class="navbar-brand"><img src="PNR_logo.php"></a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="first.php">PNR Online Ticketing System</a>
+                    <a class="nav-link" href="first.html">PNR Online Ticketing System</a>
                 </li>
             </div>
         </nav>

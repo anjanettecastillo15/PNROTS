@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     //something was posted
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $pass = MD5($password);
+    //$pass = MD5($password);
 
     if (empty(trim($_POST['username']) && trim($_POST['password']))) {
         echo"Please enter a username and/or password";
@@ -97,10 +97,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         if($password != $confirmpassword){
         echo "Password did not match";
         }
-        if(!empty($username)&& !empty($pass) && !is_numeric($username) && ($password == $confirmpassword)){
+        if(!empty($username)&& !empty($password) && !is_numeric($username) && ($password == $confirmpassword)){
 
             //save to database
-            $query = "insert into pnrots_signup (username, password) values ('$username', '$pass')"; 
+            $query = "insert into pnrots_signup (username, password) values ('$username', '$password')"; 
                 
             mysqli_query($conn, $query);
     

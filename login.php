@@ -68,9 +68,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     //something was posted
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $pass = MD5($password);
+   // $pass = MD5($password);
 
-    if(!empty($username)&& !empty($pass) && !is_numeric($username))
+    if(!empty($username)&& !empty($password) && !is_numeric($username))
     {
         
         //read from database
@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             {
                 $user_data = mysqli_fetch_assoc($result);
                 
-                if($user_data['password'] === $pass){
+                if($user_data['password'] === $password){
 
                     $_SESSION['username'] = $user_data['username'];
                     header("Location: index.php");

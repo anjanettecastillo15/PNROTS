@@ -35,17 +35,17 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container">
+                    <form class="form-container" method="post">
                     <div class="form-group">
                             <center><h2>PNROTS Login</h2></center>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
                         </div>
                         <button type="submit" class="btn btn-dark btn-block">Submit</button>
                         <medium><a class="c" href="signup.php">Don't have an account yet? Sign Up here</a></medium>
@@ -56,3 +56,46 @@
         <!--LOGIN FORM END-->
     </body>
 </html>
+
+<?php
+session_start();
+
+include("dbconnect.php");
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    
+    //something was posted
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $pass = MD5($password);
+
+    if(!empty($username)&& !empty($pass) && !is_numeric($username))
+    {
+        
+        //read from database
+        $query = "select * from pnrots_signup where username = '$username' limit 1"; 
+        
+        $result = mysqli_query($conn, $query);
+
+        if($result)
+        {
+            if($result && mysqli_num_rows($result) > 0)
+            {
+                $user_data = mysqli_fetch_assoc($result);
+                
+                if($user_data['password'] === $pass){
+
+                    $_SESSION['username'] = $user_data['username'];
+                    header("Location: index.php");
+                    die;
+                }
+            }
+        }
+        echo "Wrong username or password!";
+    }
+    else{
+        echo "Please enter valid information!";
+    }
+}
+?>

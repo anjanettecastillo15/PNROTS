@@ -35,21 +35,21 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container">
+                    <form class="form-container" method="post">
                     <div class="form-group">
                             <center><h2>PNROTS Sign Up</h2></center>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
                         </div>
                         <div class="form-group">
                             <label for="confirmpassword">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmpassword" placeholder="Re-enter Password">
+                            <input type="password" class="form-control" name="confirmpassword" placeholder="Re-enter Password">
                         </div>
                         <button type="submit" class="btn btn-dark btn-block">Submit</button>
                         <medium><a class="c" href="login.php">Already have an account? Login here</a></medium>
@@ -60,3 +60,60 @@
         <!--SIGN UP FORM END-->
     </body>
 </html>
+
+<?php
+session_start();
+
+include("dbconnect.php");
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+    //something was posted
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $pass = MD5($password);
+
+    if (empty(trim($_POST['username']) && trim($_POST['password']))) {
+        echo"Please enter a username and/or password";
+    }
+    else{
+        $checking = mysqli_query($conn, "SELECT username FROM pnrots_signup where username = '$username'");
+        
+        $result = mysqli_num_rows($checking);
+        
+        if($result>0) {
+            echo "This username is already taken";
+        }
+    }
+    if(empty(trim($_POST['confirmpassword']))){
+        echo "Please enter a confirm password";
+    }
+    elseif (strlen(trim($_POST['password'])) < 6) {
+        echo"Password must have 6 characters";
+    }
+    else{
+        $confirmpassword = $_POST['confirmpassword'];
+        //if(empty($password) && ($password != $cpassword)){
+        if($password != $confirmpassword){
+        echo "Password did not match";
+        }
+        if(!empty($username)&& !empty($pass) && !is_numeric($username) && ($password == $confirmpassword)){
+
+            //save to database
+            $query = "insert into pnrots_signup (username, password) values ('$username', '$pass')"; 
+                
+            mysqli_query($conn, $query);
+    
+            header("Location: login.php");
+            die;
+           
+        }
+        /*else{
+            echo "<div id=girl>";
+            echo "Please enter some valid information!";
+            echo "</div>";
+        }*/
+    } 
+}
+
+?>

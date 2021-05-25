@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include("dbconnect.php");
+?>
+
 <html>
 
 <head>
@@ -24,9 +29,11 @@
 
             <div class="collapse navbar-collapse" id="collapse_target">
             <a class="navbar-brand"><img src="PNR_logo.php"></a>
-            <ul class="navbar-nav">
+            <span class="navbar-text">PNR Online Ticketing System</span>
+
+            <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="first.html">PNR Online Ticketing System</a>
+                    <a class="nav-link" href="first.html">Log Out</a>
                 </li>
             </div>
         </nav>
@@ -38,10 +45,10 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                    <form method="post">
+                    <form method="post" action="index2.php">
                     <div class="form-group">
-                        <label for="cname">Complete Name</label>
-                        <input type="text" class="form-control" id="cname" placeholder="Complete Name">
+                        <label for="name">Complete Name</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Complete Name">
                     </div>
                     <div class="form-group">
                         <label for="dateoftravel">Date of Travel</label>

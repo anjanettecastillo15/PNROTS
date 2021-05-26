@@ -38,8 +38,11 @@
             </div>
         </nav>
         <!--NAVBAR END-->
-
-    <h3><center>Please complete all the informations needed</center></h3>
+        <div id="welcome" class="offset container mt-1 mb-1">
+            <div class="post-heading text-center" style="margin-bottom: 40px;">
+                <h3><center>Please complete all the informations needed</center></h3>
+            </div>
+    </div>
 
     <!--FORM START-->
         <section class="container-fluid">
@@ -52,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label for="dateoftravel">Date of Travel</label>
-                        <input type="date" class="form-control" id="dateoftravel">
+                        <input type="date" class="form-control" id="dateoftravel" name="date">
                     </div>
                     <div class="form-group">
                         <label>Departure Station:</label><br>
@@ -125,6 +128,7 @@
                 </section>
             </section>
         </section>
+   
     <!--FORM END-->
 
     

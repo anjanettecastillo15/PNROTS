@@ -92,10 +92,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 }
             }
         }
-        echo "Wrong username or password!";
+        echo"<div class=\"alert alert-danger\">";
+        echo"<strong>Wrong username or password</strong>";
+        echo"</div>";
     }
     else{
-        echo "Please enter valid information!";
+        echo"<div class=\"alert alert-danger\">";
+        echo "<strong>Please enter valid information!</strong>";
+        echo"</div>";
     }
 }
 ?>

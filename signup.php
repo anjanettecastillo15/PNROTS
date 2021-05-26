@@ -74,7 +74,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     //$pass = MD5($password);
 
     if (empty(trim($_POST['username']) && trim($_POST['password']))) {
+        echo"<div class=\"alert alert-danger\">";
         echo"Please enter a username and/or password";
+        echo"</div>";
     }
     else{
         $checking = mysqli_query($conn, "SELECT username FROM pnrots_signup where username = '$username'");
@@ -82,20 +84,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $result = mysqli_num_rows($checking);
         
         if($result>0) {
+            echo"<div class=\"alert alert-danger\">";
             echo "This username is already taken";
+            echo"</div>";
         }
     }
     if(empty(trim($_POST['confirmpassword']))){
+        echo"<div class=\"alert alert-danger\">";
         echo "Please enter a confirm password";
+        echo"</div>";
     }
     elseif (strlen(trim($_POST['password'])) < 6) {
+        echo"<div class=\"alert alert-danger\">";
         echo"Password must have 6 characters";
+        echo"</div>";
     }
     else{
         $confirmpassword = $_POST['confirmpassword'];
         //if(empty($password) && ($password != $cpassword)){
         if($password != $confirmpassword){
-        echo "Password did not match";
+            echo"<div class=\"alert alert-danger\">";
+            echo "Password did not match";
+            echo"</div>";
         }
         if(!empty($username)&& !empty($password) && !is_numeric($username) && ($password == $confirmpassword)){
 

@@ -1,66 +1,3 @@
-<html>
-    <head>
-        <title>PNROTS | Sign Up</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-    <body>
-        <div class="jumbotron bg-warning" style="margin-bottom: 0px;">
-            <h1>Philippine National Railways</h1>
-            <h2>Online Ticketing System</h2>
-            <p>Easiest way to book train tickets</p>
-        </div>
-
-       <!--NAVBAR START-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand"><img src="PNR_logo.php"></a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="first.html">PNR Online Ticketing System</a>
-                </li>
-            </div>
-        </nav>
-         <!--NAVBAR END-->
-
-        <!--SIGN UP FORM START-->
-        <section class="container-fluid">
-            <section class="row justify-content-center">
-                <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container" method="post">
-                    <div class="form-group">
-                            <center><h2>PNROTS Sign Up</h2></center>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmpassword">Confirm Password</label>
-                            <input type="password" class="form-control" name="confirmpassword" placeholder="Re-enter Password">
-                        </div>
-                        <button type="submit" class="btn btn-dark btn-block">Submit</button>
-                        <medium><a class="c" href="login.php">Already have an account? Login here</a></medium>
-                    </form>
-                </section>
-            </section>
-        </section>
-        <!--SIGN UP FORM END-->
-    </body>
-</html>
-
 <?php
 session_start();
 
@@ -127,3 +64,99 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }
 
 ?>
+
+
+<html>
+
+<head>
+    <title>PNROTS | Sign Up</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!--link para sa icon sa footer-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
+</head>
+
+<body>
+
+    <!--NAVBAR START-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="PNR_logo.png" alt="PNR logo"></a>
+            <span class="navbar-text">PNR Online Ticketing System</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="first.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="signup.php">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--NAVBAR END-->
+
+        <!--SIGN UP FORM START-->
+        <section class="container-fluid">
+            <section class="row justify-content-center">
+                <section class="col-12 col-sm-6 col-md-3">
+                <form method="post" class="form-container mt-5">
+                <h2 class="pb-3 text-center">PNROTS Sign Up</h2>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmpassword" placeholder="Re-enter Password">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+                
+                <br>
+
+                <medium><a class="c" href="login.php">Already have an account? Login here</a></medium>
+
+                </form>
+                    <!--<form class="form-container" method="post">
+                    <div class="form-group">
+                            <center><h2>PNROTS Sign Up</h2></center>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm Password</label>
+                            <input type="password" class="form-control" name="confirmpassword" placeholder="Re-enter Password">
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                        <medium><a class="c" href="login.php">Already have an account? Login here</a></medium>
+                    </form>-->
+                </section>
+            </section>
+        </section>
+        <!--SIGN UP FORM END-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
+

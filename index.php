@@ -4,43 +4,40 @@
 ?>
 
 <html>
-
 <head>
     <title>PNROTS</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <!--link para sa icon sa footer-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
 </head>
 
 <body>
-    <div class="jumbotron bg-warning" style="margin-bottom: 0px;">
-        <h1>Philippine National Railways</h1>
-        <h2>Online Ticketing System</h2>
-        <p>Easiest way to book train tickets</p>
-    </div>
 
-     <!--NAVBAR START-->
-     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand"><img src="PNR_logo.php"></a>
+    <!--NAVBAR START-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="PNR_logo.png" alt="PNR logo"></a>
             <span class="navbar-text">PNR Online Ticketing System</span>
-
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="first.html">Log Out</a>
-                </li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="first.html">Log out</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <!--NAVBAR END-->
-        <div id="welcome" class="offset container mt-1 mb-1">
+        </div>
+    </nav>
+    <!--NAVBAR END-->
+
+        <div id="welcome" class="container mt-1 mb-1">
             <div class="post-heading text-center" style="margin-bottom: 40px;">
-                <h3><center>Please complete all the informations needed</center></h3>
+                <h3 class="text-center">Please complete all the informations needed</h3>
             </div>
     </div>
 
@@ -53,11 +50,11 @@
                         <label for="name">Complete Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Complete Name">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label for="dateoftravel">Date of Travel</label>
                         <input type="date" class="form-control" id="dateoftravel" name="date">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Departure Station:</label><br>
                         <select name="departure" id="departure-list" class="form-control">
                             <option value="" disabled selected>Select Departure Station</option>
@@ -80,7 +77,7 @@
                             <option>Vito Cruz</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Arrival Station:</label><br>
                         <select name="arrival" id="arrival-list" class="form-control">
                             <option value="" disabled selected>Select Arrival Station</option>
@@ -103,7 +100,7 @@
                             <option>Vito Cruz</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Time:</label><br>
                         <select name="time" id="time-list" class="form-control">
                             <option value="" disabled selected>Select Time</option>
@@ -123,7 +120,10 @@
                             <option>07:42 PM</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-warning btn-block">Next</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-warning btn-block mt-4">Next</button>
+                    </div>
+                    
                     </form>
                 </section>
             </section>

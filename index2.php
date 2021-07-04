@@ -1,39 +1,35 @@
 <html>
-
 <head>
     <title>PNROTS</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <!--link para sa icon sa footer-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
 </head>
 
 <body>
-    <div class="jumbotron bg-warning" style="margin-bottom: 0px;">
-        <h1>Philippine National Railways</h1>
-        <h2>Online Ticketing System</h2>
-        <p>Easiest way to book train tickets</p>
-    </div>
 
-     <!--NAVBAR START-->
-     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand"><img src="PNR_logo.php"></a>
+    <!--NAVBAR START-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="PNR_logo.png" alt="PNR logo"></a>
             <span class="navbar-text">PNR Online Ticketing System</span>
-
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="first.html">Log Out</a>
-                </li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="first.html">Log out</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <!--NAVBAR END-->
-</body>
+        </div>
+    </nav>
+    <!--NAVBAR END-->
+
 
 
 <?php
@@ -69,6 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $result = mysqli_query($conn, "SELECT * FROM ticket WHERE ref_num='$transnum'");
         while($row = mysqli_fetch_array($result))
             {
+                echo '<form class="container text-center">';
                 echo "VIRTUAL TICKET";
                 echo "<br>";
                 echo "<br>";
@@ -89,6 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 echo "<br>";
                 echo "<br>";
                 echo "Thank you and have a safe trip!";
+               // echo '</form>';
             }
         $stmt->close();
         $conn->close();
@@ -100,5 +98,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
    }
 }
 ?>
-    <button class="btn btn-warning" onclick="window.print('box');" id="button">Print</button>
+<br>
+        <button class="btn btn-warning mt-3" onclick="window.print('box');" id="button">Print</button>
+        </form>
+    </body>
 </html>

@@ -94,12 +94,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
        
    }
    else{
-    echo "Please enter some valid information!";
+    echo"<div class=\"alert alert-danger\">";
+    echo "<strong>Please enter valid information!</strong>";
+    echo"</div>";
    }
 }
 ?>
 <br>
         <button class="btn btn-warning mt-3" onclick="window.print('box');" id="button">Print</button>
+        <button class="btn btn-warning mt-3" id="button"><a href="index.php" class="text-decoration-none text-dark"> Return</a></button>
         </form>
     </body>
 </html>

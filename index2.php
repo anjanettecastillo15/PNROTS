@@ -53,13 +53,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
    if(isset($_POST['date'])){
     $dot = $_POST['date'];
    }
+   if(isset($_POST['priority'])){
+    $priority = $_POST['priority'];
+   }
+   if(isset($_POST['priority_idno'])){
+    $priority_idno = $_POST['priority_idno'];
+   }
+
+   if(empty($priority_idno)){
+       $none = "none";
+       $priority_idno = $none;
+   }
    
-   if(!empty($name) && !empty($departure) && !empty($arrival) && !empty($time) && !empty($dot)){
+   if(!empty($name) && !empty($departure) && !empty($arrival) && !empty($time) && !empty($dot) && !empty($priority) && !empty($priority_idno)){
        if($departure === $arrival){
             echo "Stations are not valid";
        }
        else{
-        $stmt = $conn->prepare("insert into ticket (ref_num, name, date_of_travel, departure, arrival, time, payable) values ('$transnum','$name','$dot','$departure', '$arrival', '$time', '15')");
+        $stmt = $conn->prepare("insert into ticket (ref_num, name, date_of_travel, departure, arrival, time, priority, priority_idno, payable) values ('$transnum','$name','$dot','$departure', '$arrival', '$time', '$priority', '$priority_idno', '15')");
         $stmt->execute();
         
         $result = mysqli_query($conn, "SELECT * FROM ticket WHERE ref_num='$transnum'");
@@ -78,12 +89,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 echo 'Departure Station: '.$row['departure'].'<br>';
                 echo 'Arrival Station: '.$row['arrival'].'<br>';
                 echo 'Departure Time: '.$row['time'].'<br>';
+                echo 'Priority: ' .$row['priority'].'<br>';
+                echo 'Priority ID no.: ' .$row['priority_idno'].'<br>';
                 echo 'Payable: '.$row['payable'].'<br>';
-                echo "<br>";
                 echo "<br>";
                 echo 'Date Booked: '.$row['date_booked'].'<br>';
                 echo 'Time Booked: '.$row['time_booked'].'<br>';
-                echo "<br>";
                 echo "<br>";
                 echo "Thank you and have a safe trip!";
                // echo '</form>';

@@ -4,6 +4,26 @@
 ?>
 
 <html>
+<script> //pwede ng wala to kasi lahat naman dito is visible. pero lagay ko parin para for future reference -anjanette
+        function changeStatus(){
+            var status = document.getElementById("priority-list");
+            if(status.value == "PWD"){
+                document.getElementById("idno").style.visibility = "visible";
+            }
+            else if(status.value == "Senior Citizen"){
+                document.getElementById("idno").style.visibility = "visible";
+            }
+            else if(status.value == "Student"){
+                document.getElementById("idno").style.visibility = "visible";
+            }
+            else if(status.value == "Pregnant Women"){
+                document.getElementById("idno").style.visibility = "visible";
+            }
+            else if(status.value == "None"){
+                document.getElementById("idno").style.visibility = "hidden";
+            }
+        }
+    </script>
 <head>
     <title>PNROTS</title>
 
@@ -37,7 +57,7 @@
 
         <div id="welcome" class="container mt-1 mb-1">
             <div class="post-heading text-center" style="margin-bottom: 40px;">
-                <h3 class="text-center">Please complete all the informations needed</h3>
+                <h3 class="text-center">Please complete all the information needed</h3>
             </div>
     </div>
 
@@ -46,17 +66,17 @@
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
                     <form method="post" action="index2.php">
-                    <div class="form-group">
-                        <label for="name">Complete Name</label>
+                    <div>
+                        <label for="name" class="form-label">Complete Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Complete Name">
                     </div>
-                    <div class="form-group mt-3">
-                        <label for="dateoftravel">Date of Travel</label>
+                    <div class="mt-3">
+                        <label for="dateoftravel" class="form-label">Date of Travel</label>
                         <input type="date" class="form-control" id="dateoftravel" name="date">
                     </div>
-                    <div class="form-group mt-3">
-                        <label>Departure Station:</label><br>
-                        <select name="departure" id="departure-list" class="form-control">
+                    <div class="mt-3">
+                        <label for="departure" class="form-label">Departure Station</label>
+                        <select class="form-select" name="departure" id="departure-list">
                             <option value="" disabled selected>Select Departure Station</option>
                             <option>Alabang</option>
                             <option>Bicutan</option>
@@ -77,9 +97,9 @@
                             <option>Vito Cruz</option>
                         </select>
                     </div>
-                    <div class="form-group mt-3">
-                        <label>Arrival Station:</label><br>
-                        <select name="arrival" id="arrival-list" class="form-control">
+                    <div class="mt-3">
+                        <label for="arrival" class="form-label">Arrival Station</label>
+                        <select class="form-select" name="arrival" id="arrival-list">
                             <option value="" disabled selected>Select Arrival Station</option>
                             <option>Alabang</option>
                             <option>Bicutan</option>
@@ -100,9 +120,9 @@
                             <option>Vito Cruz</option>
                         </select>
                     </div>
-                    <div class="form-group mt-3">
-                        <label>Time:</label><br>
-                        <select name="time" id="time-list" class="form-control">
+                    <div class="mt-3">
+                        <label for="time" class="form-label">Time</label>
+                        <select class="form-select" name="time" id="time-list">
                             <option value="" disabled selected>Select Time</option>
                             <option>05:12 AM</option>
                             <option>06:02 AM</option>
@@ -120,6 +140,24 @@
                             <option>07:42 PM</option>
                         </select>
                     </div>
+                    <div class="mt-3">
+                        <label for="priority" class="form-label">Priority</label>
+                        <select class="form-select" name="priority" id="priority-list" onchange="changeStatus()">
+                            <option value="" disabled selected>Select Priority</option>
+                            <option value="PWD">PWD</option>
+                            <option value="Pregnant Woman">Pregnant Woman</option>
+                            <option value="Senior Citizen">Senior Citizen</option>
+                            <option value="Student">Student</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-3" id="idno">
+                        <label for="priority_idno" class="form-label">Valid ID no.</label>
+                        <input type="text" class="form-control" name="priority_idno" id="priority_idno" placeholder="Ex: PWD/Senior/Student ID no.">
+                        <small class="text-muted">Any Valid ID will do</small>
+                    </div>
+
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-warning btn-block mt-4">Next</button>
                     </div>
@@ -131,7 +169,8 @@
    
     <!--FORM END-->
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
 </body>
 
 </html>

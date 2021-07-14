@@ -153,9 +153,9 @@
                     </div>
 
                     <div class="mt-3" id="idno">
-                        <label for="priority_idno" class="form-label">Valid ID no.</label>
+                        <label for="priority_idno" class="form-label">Enter Valid ID no.</label>
                         <input type="text" class="form-control" name="priority_idno" id="priority_idno" placeholder="Ex: PWD/Senior/Student ID no.">
-                        <small class="text-muted">Any Valid ID will do</small>
+                        <small class="text-muted">For Pregnant Women any Valid ID will do</small>
                     </div>
 
                     <div class="d-grid gap-2">
